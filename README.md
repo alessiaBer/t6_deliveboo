@@ -64,3 +64,83 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+• Gestione dati DB:
+
+Table Plates:
+-plate_id | INTEGER(AI, PK)
+-name | VARCHAR (testo)
+-img_url | VARCHAR (testo)
+-restaurant_id | INTEGER (FK)
+-description | TEXT
+-price | DECIMAL (3,2)
+-available | BOOLEAN
+
+Table Restaurants:
+-restaurant_id | INTEGER(AI, PK)
+-phone | VARCHAR (testo)
+-address | VARCHAR (testo)
+-description | TEXT
+-rating | DECIMAL (numero con decimali)
+-statistics | //non so come gestirlo, da chiedere in fase di revisione DB//
+
+Table Orders:
+-order_id | INTEGER(AI, PK)
+-fullname | VARCHAR (testo)
+-address | VARCHAR (testo)
+-cellphone | VARCHAR (testo)
+-email | VARCHAR (testo)
+-total_price | DECIMAL (4,2)
+-payment_id | INTEGER(FK)
+
+Table RestaurantOwners:
+-restaurantOwner_id | INTEGER(AI, PK)
+-nome | VARCHAR (testo)
+-email | VARCHAR (testo)
+-password | VARCHAR (testo)
+
+Table Allergens:
+-allergene_id | INTEGER(AI, PK)
+-name | VARCHAR (testo)
+
+Table Types:
+-type_id | INTEGER(AI, PK)
+-name | VARCHAR (testo)
+
+Table Payment_method:
+-payment_method_id | INTEGER(AI, PK)
+-name | VARCHAR (testo)
+
+
+• PIVOT TABLES:
+
+Order_Plate:
+-order_id: INTEGER (FK)
+-plate_id: INTEGER (FK)
+-quantity: INTEGER
+-price: DECIMAL (4,2)
+
+Restaurant_Type:
+-restaurant_id: INTEGER (FK)
+-type_id: INTEGER (FK)
+
+Allergene_Plate:
+-allergen_id: INTEGER (FK)
+-plate_id: INTEGER (FK)
+
+• RELATIONS
+
+Ristoratori->1 to many->Restaurants 
+
+Payment_methods->1 to many->Orders
+
+Orders->many to many->Plates
+
+Types->many to many->Restaurants 
+
+Allergenes->many to many->Plates
+
+
+
