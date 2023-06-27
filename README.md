@@ -70,65 +70,66 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 • Gestione dati DB:
 
 Table Plates:
--plate_id | INTEGER(AI, PK)
--name | VARCHAR (testo)
--img_url | VARCHAR (testo)
--restaurant_id | INTEGER (FK)
+-plate_id | BIGINTEGER(AI, PK)
+-name | VARCHAR 30
+-img_url | VARCHAR 255
+-restaurant_id | BIGINTEGER (FK)
 -description | TEXT
--price | DECIMAL (3,2)
+-price | DECIMAL (5,2)
 -available | BOOLEAN
 
 Table Restaurants:
--restaurant_id | INTEGER(AI, PK)
--phone | VARCHAR (testo)
--address | VARCHAR (testo)
+-restaurant_id | BIGINTEGER(AI, PK)
+-phone | VARCHAR
+-address | VARCHAR
 -description | TEXT
 -rating | DECIMAL (numero con decimali)
 -statistics | //non so come gestirlo, da chiedere in fase di revisione DB//
 
 Table Orders:
--order_id | INTEGER(AI, PK)
--fullname | VARCHAR (testo)
--address | VARCHAR (testo)
--cellphone | VARCHAR (testo)
--email | VARCHAR (testo)
--total_price | DECIMAL (4,2)
--payment_id | INTEGER(FK)
+-order_id | BIGINTEGER(AI, PK)
+-fullname | VARCHAR
+-address | VARCHAR
+-cellphone | VARCHAR
+-email | VARCHAR
+-total_price | DECIMAL (6,2)
+-payment_id | BIGINTEGER(FK)
 
 Table RestaurantOwners:
--restaurantOwner_id | INTEGER(AI, PK)
--nome | VARCHAR (testo)
--email | VARCHAR (testo)
--password | VARCHAR (testo)
+-restaurantOwner_id | BIGINTEGER(AI, PK)
+-restaurant_id | BIGINTEGER (FK)
+-nome | VARCHAR
+-email | VARCHAR
+-password | VARCHAR
 
 Table Allergens:
--allergene_id | INTEGER(AI, PK)
--name | VARCHAR (testo)
+-allergene_id | BIGINTEGER(AI, PK)
+-name | VARCHAR
 
 Table Types:
--type_id | INTEGER(AI, PK)
--name | VARCHAR (testo)
+-type_id | BIGINTEGER(AI, PK)
+-name | VARCHAR
 
 Table Payment_method:
--payment_method_id | INTEGER(AI, PK)
--name | VARCHAR (testo)
+-payment_method_id | BIGINTEGER(AI, PK)
+-name | VARCHAR
 
 
 • PIVOT TABLES:
 
 Order_Plate:
--order_id: INTEGER (FK)
--plate_id: INTEGER (FK)
--quantity: INTEGER
--price: DECIMAL (4,2)
+-order_id: BIGINTEGER (FK)
+-plate_id: BIGINTEGER (FK)
+-quantity: INTEGER //CHIEDERE SE VA MESSO IL NUMERO DI PIATTI NELLA PIVOT O SE ESISTE UN WORKAROUND
+-price: DECIMAL (4,2) 
 
 Restaurant_Type:
--restaurant_id: INTEGER (FK)
--type_id: INTEGER (FK)
+-restaurant_id: BIGINTEGER (FK)
+-type_id: BIGINTEGER (FK)
 
 Allergene_Plate:
--allergen_id: INTEGER (FK)
--plate_id: INTEGER (FK)
+-allergen_id: BIGINTEGER (FK)
+-plate_id: BIGINTEGER (FK)
 
 • RELATIONS
 
