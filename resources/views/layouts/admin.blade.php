@@ -58,14 +58,26 @@
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link text-white {{Route::currentRouteName() == 'admin.dashboard' ? 'bg-primary' : ''}}"
+                                <a class="nav-link {{Route::currentRouteName() == 'admin.dashboard' ? 'bg-primary text-white' : ''}}"
                                     aria-current="page" href="{{route('admin.dashboard')}}">
                                     <i class="fa-regular fa-chart-bar"></i>
                                     {{__('Dashboard')}}
                                 </a>
                             </li>
-                           
-
+                            <li class="nav-item">
+                                <a class="nav-link {{Route::currentRouteName() == 'admin.restaurants.index' ? 'bg-primary text-white' : ''}}"
+                                    aria-current="page" href="{{route('admin.restaurants.index')}}">
+                                    <i class="fa-solid fa-utensils"></i>
+                                    {{__('Restaurants')}}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{Route::currentRouteName() == 'admin.plates.index' ? 'bg-primary text-white' : ''}}"
+                                    aria-current="page" href="{{route('admin.plates.index')}}">
+                                    <i class="fa-solid fa-utensils"></i>
+                                    {{__('Plates')}}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
