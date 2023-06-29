@@ -7,7 +7,8 @@ return [
         'address' => 'Corso Vittorio Emanuele, 5',
         'p_iva' => '01234567890',
         'phone' => '+39 0123 456789',
-        'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg'
+        'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'plates' => ['spaghetti', 'pizza']
     ],
     [
         'name' => 'Le Bistro Parisien',
