@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use App\Models\Restaurant;
@@ -15,7 +16,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.restaurants.index');
     }
 
     /**
