@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image_url', 255);
             $table->decimal('price', 5, 2);
-            $table->boolean('is_available');
+            $table->boolean('is_available')->default(false);
             $table->timestamps();
         });
     }

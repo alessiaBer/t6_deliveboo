@@ -13,7 +13,7 @@ class StorePlateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class StorePlateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required'],
+            'description' => ['required'],
+            'image_url' => ['required'],
+            'price' => ['required'],
+            'is_available' => ['boolean'],
+            'restaurant_id' => ['nullable', 'exists:restaurants, id' ],
         ];
     }
 }
