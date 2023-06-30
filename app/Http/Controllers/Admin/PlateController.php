@@ -16,7 +16,8 @@ class PlateController extends Controller
      */
     public function index()
     {
-        return view('admin.plates.index');
+        $plates = Plate::orderByDesc('id')->get();
+        return view('admin.plates.index', compact('plates'));
     }
 
     /**
@@ -26,7 +27,8 @@ class PlateController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('admin.plates.create');
     }
 
     /**
@@ -37,7 +39,13 @@ class PlateController extends Controller
      */
     public function store(StorePlateRequest $request)
     {
-        //
+        $val_data = $request->validated();
+        $slug = Plate::generateSlug($val_data['name']);
+        $val_data['slug'] = $slug;
+        $new_plate = Plate::create($val_data);
+
+
+        return to_route('admin.plates.index')->with('message', 'plate created sucessfully');
     }
 
     /**
@@ -48,7 +56,9 @@ class PlateController extends Controller
      */
     public function show(Plate $plate)
     {
-        //
+
+        //dd($plate);
+        return view('admin.plates.show', compact('plate'));
     }
 
     /**
@@ -59,7 +69,8 @@ class PlateController extends Controller
      */
     public function edit(Plate $plate)
     {
-        //
+
+        return view('admin.plates.edit', compact('plate'));
     }
 
     /**
@@ -71,7 +82,11 @@ class PlateController extends Controller
      */
     public function update(UpdatePlateRequest $request, Plate $plate)
     {
-        //
+        //dd($request);
+        $val_data = $request->validated();
+        $plate->update($val_data);
+
+        return to_route('admin.plates.index')->with('message', 'plate updated sucessfully');
     }
 
     /**
@@ -82,6 +97,7 @@ class PlateController extends Controller
      */
     public function destroy(Plate $plate)
     {
-        //
+        $plate->delete();
+        return to_route("admin.plates.index")->with("message", "Plate deleted");
     }
 }
