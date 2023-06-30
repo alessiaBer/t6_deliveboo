@@ -2,7 +2,7 @@
 
 return [
     [
-        'name' => 'La Trattoria del Borgo',
+        'name' => 'La Trattoria del Borgo Dio',
         'description' => 'Autentica cucina italiana con specialità regionali.',
         'address' => 'Corso Vittorio Emanuele, 5',
         'p_iva' => '01234567890',
