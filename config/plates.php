@@ -7,7 +7,7 @@ return [
         'image_url' => 'https://images-ext-1.discordapp.net/external/r7pzCb42EhhxP9DqU274YAmceiFupd2rS2WppHjne2s/https/3.bp.blogspot.com/-l_DSt0ivSf0/W_VDbx8a2AI/AAAAAAAAbis/Y4YcqU6J-4wGHTSXkHrfDpEPyd0S5WJNwCLcBGAs/s1600/spaghetti_alla_carbonara.jpg',
         'price' => 9.99,
         'is_available' => true,
-        'restaurant_id' => 1
+        'restaurant_id' => 5
     ],
     [
         'name' => 'Spaghetti alla Bolognese',
@@ -15,7 +15,7 @@ return [
         'image_url' => 'https://images-ext-1.discordapp.net/external/r7pzCb42EhhxP9DqU274YAmceiFupd2rS2WppHjne2s/https/3.bp.blogspot.com/-l_DSt0ivSf0/W_VDbx8a2AI/AAAAAAAAbis/Y4YcqU6J-4wGHTSXkHrfDpEPyd0S5WJNwCLcBGAs/s1600/spaghetti_alla_carbonara.jpg',
         'price' => 11.99,
         'is_available' => true,
-        'restaurant_id' => 1
+        'restaurant_id' => 6
     ],
     [
         'name' => 'Sushi Misto',
@@ -23,7 +23,7 @@ return [
         'image_url' => 'https://images-ext-1.discordapp.net/external/r7pzCb42EhhxP9DqU274YAmceiFupd2rS2WppHjne2s/https/3.bp.blogspot.com/-l_DSt0ivSf0/W_VDbx8a2AI/AAAAAAAAbis/Y4YcqU6J-4wGHTSXkHrfDpEPyd0S5WJNwCLcBGAs/s1600/spaghetti_alla_carbonara.jpg',
         'price' => 14.99,
         'is_available' => true,
-        'restaurant_id' => 2
+        'restaurant_id' => 6
     ],
     [
         'name' => 'Hamburger Classico',
