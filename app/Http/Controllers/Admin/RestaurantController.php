@@ -16,7 +16,9 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        return view('admin.restaurants.index');
+        $restaurants = Restaurant::orderByDesc('id')->get();
+    
+        return view('admin.restaurants.index', compact('restaurants'));
     }
 
     /**
@@ -48,7 +50,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        //
+        return view("admin.restaurants.show", compact("restaurant"));
     }
 
     /**
@@ -59,7 +61,7 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        //
+        return view('admin.restaurants.edit', compact('restaurant'));
     }
 
     /**
@@ -71,7 +73,12 @@ class RestaurantController extends Controller
      */
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-        //
+        $val_data = $request->validated();
+
+        $val_data['name'] = $request->input('name');
+
+        $val_data['slug'] = Restaurant::generateSlug($val_data['name']);
+
     }
 
     /**
