@@ -74,7 +74,7 @@
                             <li class="nav-item">
                                 <a class="nav-link {{Route::currentRouteName() == 'admin.plates.index' ? 'bg-primary text-white' : ''}}"
                                     aria-current="page" href="{{route('admin.plates.index')}}">
-                                    <i class="fa-solid fa-utensils"></i>
+                                    <i class="fa-solid fa-plate-wheat"></i>
                                     {{__('Plates')}}
                                 </a>
                             </li>

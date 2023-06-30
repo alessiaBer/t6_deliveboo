@@ -16,7 +16,9 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        return view('admin.restaurants.index');
+        $restaurants = Restaurant::orderByDesc('id')->get();
+    
+        return view('admin.restaurants.index', compact('restaurants'));
     }
 
     /**
@@ -26,7 +28,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.restaurants.create');
     }
 
     /**
@@ -37,7 +39,13 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        //
+        $val_data = $request->validated();
+
+        $val_data['slug'] = Restaurant::generateSlug($val_data['name']);
+
+        $newRestaurant = Restaurant::create($val_data);
+
+        return to_route('admin.restaurants.index')->with('message', 'Restaurant created successfully');
     }
 
     /**
@@ -48,7 +56,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        //
+        return view("admin.restaurants.show", compact("restaurant"));
     }
 
     /**
@@ -59,7 +67,7 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        //
+        return view('admin.restaurants.edit', compact('restaurant'));
     }
 
     /**
@@ -71,7 +79,16 @@ class RestaurantController extends Controller
      */
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-        //
+        $val_data = $request->validated();
+
+        $val_data['name'] = $request->input('name');
+
+        $val_data['slug'] = Restaurant::generateSlug($val_data['name']);
+
+        $restaurant->update($val_data);
+
+        return to_route('admin.restaurants.index')->with('message', 'Restaurant edited successfully');;
+
     }
 
     /**
@@ -82,6 +99,7 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        $restaurant->delete();
+        return to_route("admin.restaurants.index")->with("message", "Restaurant deleted");
     }
 }
