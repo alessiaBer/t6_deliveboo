@@ -19,7 +19,7 @@
             <h4>restaurant image:
                 <br>
                 <span>
-                    <img height="100" src="{{ $restaurant->image_url }}" alt="{{ $restaurant->title }}">
+                    <img height="100" src="{{ $restaurant->image_url }}" alt="{{ $restaurant->name }}">
                 </span>
             </h4>
             <h4>description:

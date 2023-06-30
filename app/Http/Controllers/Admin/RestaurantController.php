@@ -28,7 +28,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.restaurants.create');
     }
 
     /**
@@ -39,7 +39,13 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        //
+        $val_data = $request->validated();
+
+        $val_data['slug'] = Restaurant::generateSlug($val_data['name']);
+
+        $newRestaurant = Restaurant::create($val_data);
+
+        return to_route('admin.restaurants.index')->with('message', 'Restaurant created successfully');
     }
 
     /**
@@ -79,6 +85,10 @@ class RestaurantController extends Controller
 
         $val_data['slug'] = Restaurant::generateSlug($val_data['name']);
 
+        $restaurant->update($val_data);
+
+        return to_route('admin.restaurants.index')->with('message', 'Restaurant edited successfully');;
+
     }
 
     /**
@@ -89,6 +99,7 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        $restaurant->delete();
+        return to_route("admin.restaurants.index")->with("message", "Restaurant deleted");
     }
 }

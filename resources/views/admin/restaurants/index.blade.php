@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1 class="my-3">Restaurants</h1>
+    <h1 class="my-3">Restaurants</h1>
+    <a class="btn btn-primary mb-3" href="{{ route('admin.restaurants.create') }}" role="button">New Restaurant</a>
     @if (session('message'))
         <div class="alert alert-success" role="alert">
             <strong>{{ session('message') }}</strong>
@@ -38,12 +39,44 @@
                             <a class="btn btn-success" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">
                                 <i class="fa-regular fa-eye fa-fw"></i>
                             </a>
+                            <a class="btn btn-info my-1" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#modal-{{ $restaurant->id }}">
+                                <i class="fa-regular fa-trash-can fa-fw"></i>
+                            </button>
                         </td>
                     </tr>
+                    <div class="modal fade" id="modal-{{ $restaurant->id }}" tabindex="-1" data-bs-backdrop="static"
+                        data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitle-{{ $restaurant->id }}"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-dark" id="modalTitle-{{ $restaurant->id }}">Attenzione!</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-black">
+                                    Sicuro di voler cancellare la repo?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
+                                    <form action="{{ route('admin.restaurants.destroy', $restaurant->slug) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">delete</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @empty
                     <tr>
-                        <td scope="row">No projects found</td>
+                        <td scope="row">No restaurants found</td>
                     </tr>
                 @endforelse
             </tbody>
