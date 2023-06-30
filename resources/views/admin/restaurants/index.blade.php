@@ -14,7 +14,7 @@
             <thead>
                 <tr class="align-middle">
                     <th scope="col">ID</th>
-                    <th scope="col">image_url</th>
+                    <th scope="col">image_url </th>
                     <th scope="col">user_id</th>
                     <th scope="col">Name</th>
                     <th scope="col">Address</th>
