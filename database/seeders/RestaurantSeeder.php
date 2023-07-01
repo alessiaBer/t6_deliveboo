@@ -21,6 +21,7 @@ class RestaurantSeeder extends Seeder
         foreach($restaurants as $restaurant) {
             $newRestaurant = new Restaurant();
             $newRestaurant->name = $restaurant['name'];
+            $newRestaurant->user_id = 1;
             $newRestaurant->slug = Str::slug($restaurant['name']);
             $newRestaurant->description = $restaurant['description'];
             $newRestaurant->address = $restaurant['address'];

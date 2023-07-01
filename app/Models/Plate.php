@@ -20,7 +20,7 @@ class Plate extends Model
     }
 
     public static function generateRestaurantId(){
-        return Auth::id();
+        return Auth::user()->restaurant->id;
     }
 
     /**
