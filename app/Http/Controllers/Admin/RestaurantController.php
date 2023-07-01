@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Restaurant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
-use App\Models\Restaurant;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
@@ -16,8 +17,16 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::orderByDesc('id')->get();
-    
+        //dd(Auth::id());
+        //$restaurants = Restaurant::orderByDesc('id')->get();
+        //  if (Auth::id(1)) {
+        //      $restaurants = Restaurant::orderByDesc('id')->get();
+        // } else {
+          $restaurants = Auth::user(Auth::id())
+                ->restaurant()
+                ->orderByDesc('id')
+                ->get();
+        //  }
         return view('admin.restaurants.index', compact('restaurants'));
     }
 
@@ -42,7 +51,9 @@ class RestaurantController extends Controller
         $val_data = $request->validated();
 
         $val_data['slug'] = Restaurant::generateSlug($val_data['name']);
-
+        
+        $val_data['user_id'] = Auth::id();
+        
         $newRestaurant = Restaurant::create($val_data);
 
         return to_route('admin.restaurants.index')->with('message', 'Restaurant created successfully');
@@ -56,7 +67,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        return view("admin.restaurants.show", compact("restaurant"));
+        return view('admin.restaurants.show', compact('restaurant'));
     }
 
     /**
@@ -67,7 +78,10 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        return view('admin.restaurants.edit', compact('restaurant'));
+        if (Auth::id() === $restaurant->user_id || Auth::id(1) === $restaurant->user_id ) {
+            return view('admin.restaurants.edit', compact('restaurant'));
+        }
+        abort(403);
     }
 
     /**
@@ -87,8 +101,7 @@ class RestaurantController extends Controller
 
         $restaurant->update($val_data);
 
-        return to_route('admin.restaurants.index')->with('message', 'Restaurant edited successfully');;
-
+        return to_route('admin.restaurants.index')->with('message', 'Restaurant edited successfully');
     }
 
     /**
@@ -100,6 +113,6 @@ class RestaurantController extends Controller
     public function destroy(Restaurant $restaurant)
     {
         $restaurant->delete();
-        return to_route("admin.restaurants.index")->with("message", "Restaurant deleted");
+        return to_route('admin.restaurants.index')->with('message', 'Restaurant deleted');
     }
 }

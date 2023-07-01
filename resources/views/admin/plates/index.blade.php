@@ -24,6 +24,7 @@
             </thead>
             <tbody>
                 @forelse($plates as $plate)
+                
                     <tr class="align-middle">
                         <td scope="row">{{ $plate->id }}</td>
                         <td scope="row">
