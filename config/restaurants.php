@@ -8,7 +8,7 @@ return [
         'p_iva' => '01234567890',
         'phone' => '+39 0123 456789',
         'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
-
+        'user_id' => 1,
     ],
     [
         'name' => 'Le Bistro Parisien',
@@ -17,6 +17,7 @@ return [
         'p_iva' => '09876543210',
         'phone' => '+39 9876 543210',
         'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'user_id' => 2,
     ],
     [
         'name' => 'Mamma Mia Pizzeria',
@@ -25,6 +26,7 @@ return [
         'p_iva' => '24681357902',
         'phone' => '+39 0246 813579',
         'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'user_id' => 3,
     ],
 [
         'name' => 'Sushiya',
@@ -33,6 +35,7 @@ return [
         'p_iva' => '75395124680',
         'phone' => '+81 3 1234 5678',
         'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'user_id' => 4,
     ],
     [
         'name' => 'El Rancho Steakhouse',
@@ -41,6 +44,7 @@ return [
         'p_iva' => '57904681324',
         'phone' => '+34 912 345 678',
         'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'user_id' => 5,
     ],
     [
         'name' => 'Cantina Mexicana',
@@ -49,6 +53,7 @@ return [
         'p_iva' => '96123456780',
         'phone' => '+52 55 6789 1234',
         'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'user_id' => 6,
     ],
     [
         'name' => 'Thai Spice',
@@ -57,5 +62,6 @@ return [
         'p_iva' => '46801357924',
         'phone' => '+66 2 3456 7890',
         'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'user_id' => 7,
     ]
 ];
