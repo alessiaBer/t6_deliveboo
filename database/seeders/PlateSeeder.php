@@ -26,7 +26,7 @@ class PlateSeeder extends Seeder
             $newPlate->image_url = $plate['image_url'];
             $newPlate->price = $plate['price'];
             $newPlate->is_available = $plate['is_available'];
-            $newPlate->restaurant_id = Auth::id();
+            $newPlate->restaurant_id = 1;
             $newPlate->save();
         }
     }

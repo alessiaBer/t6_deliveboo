@@ -37,6 +37,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
+        // TODO mettere if auth::user->restaurant errore
         return view('admin.restaurants.create');
     }
 
