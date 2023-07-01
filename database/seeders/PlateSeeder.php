@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Plate;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,7 +26,7 @@ class PlateSeeder extends Seeder
             $newPlate->image_url = $plate['image_url'];
             $newPlate->price = $plate['price'];
             $newPlate->is_available = $plate['is_available'];
-            $newPlate->restaurant_id = $plate['restaurant_id'];
+            $newPlate->restaurant_id = Auth::id();
             $newPlate->save();
         }
     }

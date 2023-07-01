@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Plate;
+use App\Models\Restaurant;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePlateRequest;
 use App\Http\Requests\UpdatePlateRequest;
-use App\Models\Plate;
 
 class PlateController extends Controller
 {
@@ -16,7 +18,18 @@ class PlateController extends Controller
      */
     public function index()
     {
-        $plates = Plate::orderByDesc('id')->get();
+        // $plates = Plate::orderByDesc('id')->get();
+        // dd(Restaurant::id());
+
+         $plates = Plate::orderByDesc('id')->where('restaurant_id', Auth::id())->get();
+
+        // if (Auth::id(1)) {
+        //     $plates = Plate::orderByDesc('id')->get();
+        // } else {
+            // $plates = Plate::orderByDesc('id')->where($restaurants->user_id, Auth::id())->get();
+        // }
+
+
         return view('admin.plates.index', compact('plates'));
     }
 
@@ -42,7 +55,13 @@ class PlateController extends Controller
         $val_data = $request->validated();
         $slug = Plate::generateSlug($val_data['name']);
         $val_data['slug'] = $slug;
+        $restaurant_id = Plate::generateRestaurantId();
+
+        $val_data['restaurant_id'] = $restaurant_id;
+
+
         $new_plate = Plate::create($val_data);
+
 
 
         return to_route('admin.plates.index')->with('message', 'plate created sucessfully');

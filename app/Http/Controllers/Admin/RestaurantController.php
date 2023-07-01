@@ -17,13 +17,16 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        // $restaurants = Restaurant::orderByDesc('id')->get();
-
-        $restaurants = Auth::user()
-            ->restaurant()
-            ->orderByDesc('id')
-            ->get();
-
+        //dd(Auth::id());
+        //$restaurants = Restaurant::orderByDesc('id')->get();
+        //  if (Auth::id(1)) {
+        //      $restaurants = Restaurant::orderByDesc('id')->get();
+        // } else {
+          $restaurants = Auth::user(Auth::id())
+                ->restaurant()
+                ->orderByDesc('id')
+                ->get();
+        //  }
         return view('admin.restaurants.index', compact('restaurants'));
     }
 
@@ -75,7 +78,7 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        if (Auth::id() === $restaurant->user_id) {
+        if (Auth::id() === $restaurant->user_id || Auth::id(1) === $restaurant->user_id ) {
             return view('admin.restaurants.edit', compact('restaurant'));
         }
         abort(403);
