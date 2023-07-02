@@ -36,7 +36,7 @@
             <div class="dropdown open">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    {{ Auth::user()->name }}
+                    {{ Auth::user()->email }}
                 </button>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="triggerId">
                     <a class="dropdown-item" href="{{ route('admin.dashboard') }}">{{__('Home')}}</a>
@@ -78,6 +78,15 @@
                                     {{__('Plates')}}
                                 </a>
                             </li>
+                            @if (Auth::id() == 1)
+                            <li class="nav-item">
+                                <a class="nav-link {{Route::currentRouteName() == 'admin.types.index' ? 'bg-primary text-white' : ''}}"
+                                    aria-current="page" href="{{route('admin.types.index')}}">
+                                    <i class="fa-solid fa-seedling"></i>
+                                    {{__('Types')}}
+                                </a>
+                            </li>
+                            @endif
                         </ul>
                     </div>
                 </nav>

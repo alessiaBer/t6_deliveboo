@@ -16,7 +16,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::orderBy('name')->get();
+        return view('admin.types.index', compact('types'));
     }
 
     /**

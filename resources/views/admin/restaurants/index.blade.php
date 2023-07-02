@@ -2,8 +2,7 @@
 
 @section('content')
     <h1 class="my-3">Restaurants</h1>
-    <!-- TODO mettere if x non far vedere btn se lo auth::user ha già un restaurant -->
-    <a class="btn btn-primary mb-3" href="{{ route('admin.restaurants.create') }}" role="button">New Restaurant</a>
+    {{-- <a class="btn btn-primary mb-3" href="{{ route('admin.restaurants.create') }}" role="button">New Restaurant</a> --}}
     @if (session('message'))
         <div class="alert alert-success" role="alert">
             <strong>{{ session('message') }}</strong>

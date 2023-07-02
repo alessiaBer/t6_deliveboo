@@ -19,14 +19,14 @@ class RestaurantController extends Controller
     {
         //dd(Auth::id());
         //$restaurants = Restaurant::orderByDesc('id')->get();
-        //  if (Auth::id(1)) {
-        //      $restaurants = Restaurant::orderByDesc('id')->get();
-        // } else {
-          $restaurants = Auth::user(Auth::id())
+        if (Auth::id() == 1) {
+            $restaurants = Restaurant::orderBy('name')->get();
+        } else {
+            $restaurants = Auth::user(Auth::id())
                 ->restaurant()
                 ->orderByDesc('id')
                 ->get();
-        //  }
+        }
         return view('admin.restaurants.index', compact('restaurants'));
     }
 
