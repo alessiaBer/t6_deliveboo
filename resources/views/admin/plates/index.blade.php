@@ -77,7 +77,7 @@
 
                 @empty
                     <tr>
-                        <td scope="row">No projects found</td>
+                        <td scope="row">No plates found</td>
                     </tr>
                 @endforelse
             </tbody>
