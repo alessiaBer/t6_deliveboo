@@ -139,9 +139,13 @@ Payment_methods->1 to many->Orders
 
 Orders->many to many->Plates
 
-Types->many to many->Restaurants 
+Types->many to many->Restaurants
 
 Allergenes->many to many->Plates
 
+
+• INSTRUCTIONS
+
+1 File .env modificare FILESYSTEM_DISK= public
 
 
