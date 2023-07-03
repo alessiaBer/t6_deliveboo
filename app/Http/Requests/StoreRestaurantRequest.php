@@ -24,12 +24,12 @@ class StoreRestaurantRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required', 
-            'description'=>'nullable', 
-            'address'=>'nullable', 
-            'p_iva'=>'nullable', 
-            'phone'=>'nullable', 
-            'image_url'=>'nullable', 
+            'name'=>['required'], 
+            'description'=>['nullable'], 
+            'address'=>['nullable'], 
+            'p_iva'=>['nullable'], 
+            'phone'=>['nullable'], 
+            'image_url'=>['nullable', 'image'], 
         ];
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePlateRequest;
 use App\Http\Requests\UpdatePlateRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PlateController extends Controller
 {
@@ -53,6 +54,11 @@ class PlateController extends Controller
         $restaurant_id = Plate::generateRestaurantId();
 
         $val_data['restaurant_id'] = $restaurant_id;
+    
+        if ($request->hasFile('image_url')){
+            $image_path = Storage::put('uploads', $request->image_url);
+            $val_data['image_url'] = $image_path;
+        };
 
 
         $new_plate = Plate::create($val_data);
@@ -98,7 +104,19 @@ class PlateController extends Controller
     {
         //dd($request);
         $val_data = $request->validated();
+
+        if ($request->hasFile('image_url')){
+
+            if($plate->image_url){
+                Storage::delete($plate->image_url);
+            };
+
+            $image_path = Storage::put('uploads', $request->image_url);
+            $val_data['image_url'] = $image_path;
+        };
+        
         $plate->update($val_data);
+        
 
         return to_route('admin.plates.index')->with('message', 'plate updated sucessfully');
     }

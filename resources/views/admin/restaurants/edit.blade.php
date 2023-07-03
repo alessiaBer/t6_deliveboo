@@ -10,7 +10,7 @@
         @endforeach
     @endif
 
-    <form action="{{ route('admin.restaurants.update', $restaurant) }}" method="post">
+    <form action="{{ route('admin.restaurants.update', $restaurant) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -65,15 +65,19 @@
             @enderror
         </div>
 
+        <div class="d-flex">
+            <img width="100" src="{{ asset('storage/' . $restaurant->image_url)}}" alt="{{$restaurant->image_url}}">
+        </div>
+
         <div class="mb-3">
             <label for="image_url" class="form-label">Image</label>
-            <input type="text" name="image_url" id="image_url"
-                class="form-control @error('image_url') is-invalid @enderror" placeholder="Restaurant image_url" value="{{ old('image_url', $restaurant->image_url) }}">
+            <input type="file" name="image_url" id="image_url"
+                class="form-control @error('image_url') is-invalid @enderror" value="{{ old('image_url') }}"
+                placeholder="restaurant image_url">
 
             @error('image_url')
                 <small class="text-danger">Please, fill the field correctly</small>
             @enderror
-
         </div>
 
         <div class="mb-3">

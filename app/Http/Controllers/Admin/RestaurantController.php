@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -54,6 +55,11 @@ class RestaurantController extends Controller
         $val_data['slug'] = Restaurant::generateSlug($val_data['name']);
         
         $val_data['user_id'] = Auth::id();
+
+        if ($request->hasFile('image_url')){
+            $image_path = Storage::put('uploads', $request->image_url);
+            $val_data['image_url'] = $image_path;
+        };
         
         $newRestaurant = Restaurant::create($val_data);
 
@@ -99,6 +105,16 @@ class RestaurantController extends Controller
         $val_data['name'] = $request->input('name');
 
         $val_data['slug'] = Restaurant::generateSlug($val_data['name']);
+
+        if ($request->hasFile('image_url')){
+
+            if($restaurant->image_url){
+                Storage::delete($restaurant->image_url);
+            };
+
+            $image_path = Storage::put('uploads', $request->image_url);
+            $val_data['image_url'] = $image_path;
+        };
 
         $restaurant->update($val_data);
 

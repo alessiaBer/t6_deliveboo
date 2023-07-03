@@ -19,7 +19,7 @@
             <h4>Plate image:
                 <br>
                 <span>
-                    <img height="100" src="{{ $plate->image_url }}" alt="{{ $plate->name }}">
+                    <img height="100"  src="{{ asset('storage/' . $plate->image_url) }}" alt="{{ $plate->name }}">
                 </span>
             </h4>
             <h4>Description:
