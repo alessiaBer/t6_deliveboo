@@ -148,4 +148,4 @@ Allergenes->many to many->Plates
 
 1 File .env modificare FILESYSTEM_DISK= public
 
-
+2 Aggiungi `APP_FRONTEND_URL=http://localhost:5173` sotto `APP_URL` (controlla che il tuo URL Frontend sia uguale a questo)
