@@ -9,7 +9,7 @@
         @endforeach
     @endif
 
-    <form action="{{ route('admin.plates.store') }}" method="post">
+    <form action="{{ route('admin.types.store') }}" method="post">
         @csrf
 
         <div class="mb-3">

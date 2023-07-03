@@ -18,8 +18,6 @@
             </h4>
            
            
-
-
             {{--  <h4>type starting date:
                 <br>
                 <span class="fw-normal">{{ $type->created_at }}</span>

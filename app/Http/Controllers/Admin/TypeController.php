@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
+use App\Models\Restaurant;
 use App\Models\Type;
+use Illuminate\Support\Facades\Auth;
 
 class TypeController extends Controller
 {
@@ -38,7 +40,13 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        //
+        $val_data = $request->validated();
+
+        $val_data['slug'] = Type::generateSlug($val_data['name']);
+        
+        $newType = Type::create($val_data);
+
+        return to_route('admin.types.index')->with('message', 'Type created successfully');
     }
 
     /**
@@ -60,7 +68,9 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+       
+     return view('admin.types.edit', compact('type'));
+       
     }
 
     /**
@@ -72,7 +82,12 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $val_data = $request->validated();
+        $val_data['name']= $request->input('name');
+        $val_data['slug']=Restaurant::generateSlug($val_data['name']);
+        $type->update($val_data);
+
+        return to_route('admin.types.index')->with('message', 'Type edited successfully');
     }
 
     /**
