@@ -26,7 +26,7 @@ class UpdatePlateRequest extends FormRequest
         return [
             'name' => ['required'],
             'description' => ['required'],
-            'image_url' => ['required'],
+            'image_url' => ['required', 'image'],
             'price' => ['required'],
             'is_available' => ['boolean'],
             'restaurant_id' => ['nullable', 'exists:restaurants, id' ],

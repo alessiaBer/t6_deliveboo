@@ -13,7 +13,7 @@
         @endif
         <h2 class="text-center text-dark text-uppercase">you are currently editing the item #{{ $plate->id }}</h2>
         <h2 class="text-center text-dark text-uppercase">{{ $plate->name }}</h2>
-        <form action="{{ route('admin.plates.update', $plate) }}" method="post" class="text-light bg-dark rounded p-5">
+        <form action="{{ route('admin.plates.update', $plate) }}" method="post" class="text-light bg-dark rounded p-5" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -66,16 +66,21 @@
                 @enderror
             </div>
 
-
-
-            <div class="mb-3 row">
-                <label for="image_url" class="col-3 col-form-label text-uppercase">image:</label>
-                <img style="width:200px !important" src="{{ $plate->image_url }}" alt="{{ $plate->name }}">
-                <div class="col-6">
-                    <input type="text" class="form-control @error('image_url') is-invalid @enderror" name="image_url"
-                        id="image_url" placeholder="only image there" value="{{ old('image_url', $plate->image_url) }}">
-                </div>
+            <div class="d-flex">
+                <img width="100" src="{{ asset('storage/' . $plate->image_url)}}" alt="{{$plate->image_url}}">
             </div>
+
+            <div class="mb-3">
+                <label for="image_url" class="form-label">Image</label>
+                <input type="file" name="image_url" id="image_url"
+                    class="form-control @error('image_url') is-invalid @enderror" value="{{ old('image_url') }}"
+                    placeholder="plate image_url">
+    
+                @error('image_url')
+                    <small class="text-danger">Please, fill the field correctly</small>
+                @enderror
+            </div>
+
             <div class="text-center">
                 <button type="submit" class="btn btn-warning text-uppercase mx-3"
                     href="{{ route('admin.plates.index') }}">Save</button>

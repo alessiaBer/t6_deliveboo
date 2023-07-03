@@ -28,7 +28,7 @@
                     <tr class="align-middle">
                         <td scope="row">{{ $restaurant->id }}</td>
                         <td scope="row">
-                            <img height="100" src="{{ $restaurant->image_url }}" alt="{{ $restaurant->name }}">
+                            <img height="100" src="{{ asset('storage/' . $restaurant->image_url) }}" alt="{{ $restaurant->name }}">
                         </td>
                         <td scope="row">{{ $restaurant->user_id }}</td>
                         <td scope="row">{{ $restaurant->name }}</td>

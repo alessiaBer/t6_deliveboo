@@ -9,7 +9,7 @@
         @endforeach
     @endif
 
-    <form action="{{ route('admin.plates.store') }}" method="post">
+    <form action="{{ route('admin.plates.store') }}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
@@ -36,7 +36,7 @@
 
         <div class="mb-3">
             <label for="image_url" class="form-label">Image Url</label>
-            <input type="text" name="image_url" id="image_url"
+            <input type="file" name="image_url" id="image_url"
                 class="form-control @error('image_url') is-invalid @enderror" value="{{ old('image_url') }}"
                 placeholder="plate image_url">
 
