@@ -15,6 +15,7 @@ use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
 
 class RegisteredUserController extends Controller
 {
@@ -58,7 +59,7 @@ class RegisteredUserController extends Controller
             'address' => $request->address,
             'p_iva' => $request->p_iva,
             'phone' => $request->phone,
-            'image_url' => $request->image_url,
+            'image_url' =>  Storage::put('uploads', $request->image_url),
             'description' => $request->description,
             'user_id' => $user->id
         ]);
