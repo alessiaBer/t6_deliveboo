@@ -18,7 +18,7 @@
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control" name="email"
-                                        value="{{ old('email') }}" required>
+                                        value="" required>
                                 </div>
                             </div>
 
@@ -147,9 +147,19 @@
     </div>
 
     <script>
-        addEventListener("submit", (event) => {
-            event.preventDefault();
-            console.log(event);
+        const form = document.getElementById('validation');
+
+        form.addEventListener('click', function(){
+            // console.log('ciao');
+
+            const emailInput = document.getElementById("email");
+            const pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$/;
+
+            if (pattern.test(emailInput.value)) {
+                console.log('si');
+            } else{
+                console.log('no');
+            }
         })
     </script>
 @endsection
