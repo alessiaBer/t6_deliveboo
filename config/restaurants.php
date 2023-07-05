@@ -7,16 +7,16 @@ return [
         'address' => 'Corso Vittorio Emanuele, 5',
         'p_iva' => '01234567890',
         'phone' => '+39 0123 456789',
-        'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
-        'user_id' => 1,
+        'image_url' => 'uploads/trattoria.png',
+        'user_id' => 8,
     ],
     [
-        'name' => 'Le Bistro Parisien',
+        'name' => 'Le Bistro Farisien',
         'description' => 'Gustosi piatti francesi in un\'atmosfera accogliente.',
         'address' => 'Via Roma, 10',
         'p_iva' => '09876543210',
         'phone' => '+39 9876 543210',
-        'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'image_url' => 'uploads/kebab.jpg',
         'user_id' => 2,
     ],
     [
@@ -25,7 +25,7 @@ return [
         'address' => 'Via Garibaldi, 20',
         'p_iva' => '24681357902',
         'phone' => '+39 0246 813579',
-        'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'image_url' => 'uploads/pizzeria.jpg',
         'user_id' => 3,
     ],
 [
@@ -34,7 +34,7 @@ return [
         'address' => 'Via Torquato Tasso',
         'p_iva' => '75395124680',
         'phone' => '+81 3 1234 5678',
-        'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'image_url' => 'uploads/sushi.jpg',
         'user_id' => 4,
     ],
     [
@@ -43,7 +43,7 @@ return [
         'address' => 'Via dei Mercanti, 15',
         'p_iva' => '57904681324',
         'phone' => '+34 912 345 678',
-        'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'image_url' => 'uploads/vegetariano1.jpg',
         'user_id' => 5,
     ],
     [
@@ -52,7 +52,7 @@ return [
         'address' => 'Via dei Principati, 8',
         'p_iva' => '96123456780',
         'phone' => '+52 55 6789 1234',
-        'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'image_url' => 'uploads/fast_food.jpg',
         'user_id' => 6,
     ],
     [
@@ -61,7 +61,7 @@ return [
         'address' => 'Via dei Canali, 23',
         'p_iva' => '46801357924',
         'phone' => '+66 2 3456 7890',
-        'image_url' => 'https://wallpapercave.com/wp/wp1874174.jpg',
+        'image_url' => 'uploads/cinese.jpg',
         'user_id' => 7,
     ]
 ];

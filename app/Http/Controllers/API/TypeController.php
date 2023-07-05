@@ -16,4 +16,22 @@ class TypeController extends Controller
             'results' => $types,
         ]);
     }
+
+    public function show($slug)
+    {
+        $type = Type::with(['restaurants'])
+            ->where('slug', $slug)
+            ->first();
+        if ($type) {
+            return response()->json([
+                'success' => true,
+                'result' => $type,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'result' => '404 type not found',
+            ]);
+        }
+    }
 }
