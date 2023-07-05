@@ -43,7 +43,7 @@ return [
         'address' => 'Via dei Mercanti, 15',
         'p_iva' => '57904681324',
         'phone' => '+34 912 345 678',
-        'image_url' => 'uploads/vegetariano1.jpg',
+        'image_url' => 'uploads/vegetariano1.png',
         'user_id' => 5,
     ],
     [
