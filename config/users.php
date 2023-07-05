@@ -3,41 +3,41 @@ return [
     [
         "id" => 1,
         "email" => "team6@example.com",
-        "password" => 'password123'
+        "password" => '$2y$10$pfQuhlBu3ZwI/aquOr3meOSq6OaYdlHfTbLUHn0kgWiet.wUnFKMm'
     ],
     [
         "id" => 2,
         "email" => "john.doe@example.com",
-        "password" => "password456"
+        "password" => '$2y$10$pfQuhlBu3ZwI/aquOr3meOSq6OaYdlHfTbLUHn0kgWiet.wUnFKMm'
     ],
     [
         "id" => 3,
         "email" => "emily.smith@example.com",
-        "password" => "password789"
+        "password" => '$2y$10$pfQuhlBu3ZwI/aquOr3meOSq6OaYdlHfTbLUHn0kgWiet.wUnFKMm'
     ],
     [
         "id" => 4,
         "email" => "alexander.wilson@example.com",
-        "password" => "password1011"
+        "password" => '$2y$10$pfQuhlBu3ZwI/aquOr3meOSq6OaYdlHfTbLUHn0kgWiet.wUnFKMm'
     ],
     [
         "id" => 5,
         "email" => "sarah.johnson@example.com",
-        "password" => "password1213"
+        "password" => '$2y$10$pfQuhlBu3ZwI/aquOr3meOSq6OaYdlHfTbLUHn0kgWiet.wUnFKMm'
     ],
     [
         "id" => 6,
         "email" => "david.thompson@example.com",
-        "password" => "password1415"
+        "password" => '$2y$10$pfQuhlBu3ZwI/aquOr3meOSq6OaYdlHfTbLUHn0kgWiet.wUnFKMm'
     ],
     [
         "id" => 7,
         "email" => "jessica.brown@example.com",
-        "password" => "password1617"
+        "password" => '$2y$10$pfQuhlBu3ZwI/aquOr3meOSq6OaYdlHfTbLUHn0kgWiet.wUnFKMm'
     ],
     [
         "id" => 8,
         "email" => "samuel.miller@example.com",
-        "password" => "password1819"
+        "password" => '$2y$10$pfQuhlBu3ZwI/aquOr3meOSq6OaYdlHfTbLUHn0kgWiet.wUnFKMm'
     ]
 ];
