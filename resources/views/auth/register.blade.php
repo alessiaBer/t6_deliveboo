@@ -118,7 +118,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('description')
+                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description')
                                 }}</label>
 
                             <div class="col-md-6">
