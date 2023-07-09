@@ -16,7 +16,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        // date???
+        $orders = Order::orderByDesc('created_at')->get();
+        return view('admin.orders.index', compact('orders'));
     }
 
     /**

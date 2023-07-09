@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PlateController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\RestaurantController;
@@ -27,6 +28,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('restaurants', RestaurantController::class)->parameters(['restaurants' => 'restaurant:slug']);
     Route::resource('plates', PlateController::class)->parameters(['plates' => 'plate:slug']);
     Route::resource('types', TypeController::class)->parameters(['types' => 'type:slug']);
+    Route::resource('orders', OrderController::class);
 });
 
 Route::middleware('auth')->group(function () {

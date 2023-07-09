@@ -78,6 +78,13 @@
                                     {{__('Plates')}}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{Route::currentRouteName() == 'admin.orders.index' ? 'bg-primary text-white' : ''}}"
+                                    aria-current="page" href="{{route('admin.orders.index')}}">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                    {{__('Orders')}}
+                                </a>
+                            </li>
                             @if (Auth::id() == 1)
                             <li class="nav-item">
                                 <a class="nav-link {{Route::currentRouteName() == 'admin.types.index' ? 'bg-primary text-white' : ''}}"
