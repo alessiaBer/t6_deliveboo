@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('order_plate', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('plate_id');
             $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete();
             $table->foreign('plate_id')->references('id')->on('plates')->cascadeOnDelete();
-            $table->primary(['order_id', 'plate_id']);
         });
     }
 

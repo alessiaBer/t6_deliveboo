@@ -33,9 +33,9 @@ class Plate extends Model
         return $this->belongsTo(Restaurant::class);
     }
 
-    public function types(): BelongsToMany
+    public function plates(): BelongsToMany
     {
-        return $this->belongsToMany(Type::class);
+        return $this->belongsToMany(Order::class);
     }
 
 }

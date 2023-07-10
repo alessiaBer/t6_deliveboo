@@ -38,13 +38,12 @@ class OrderController extends Controller
         ]);
 
         $plates = $request->plates;
-        $plateIds = [];
 
         foreach ($plates as $plate) {
-            array_push($plateIds, $plate->id);
+            
+            $order->plates()->attach($plate);
         }
         
-        $order->plates()->attach($plateIds);
 
         return response()->json([
             'success' => true

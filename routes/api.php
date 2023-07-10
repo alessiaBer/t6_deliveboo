@@ -29,5 +29,5 @@ Route::get('/types', [TypeController::class, 'index']);
 
 Route::get('/types/{type:slug}', [TypeController::class, 'show']);
 
-Route::get('/order', [OrderController::class, 'store']);
+Route::post('/orders', [OrderController::class, 'store']);
 
