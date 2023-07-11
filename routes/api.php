@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\API\LeadController;
 use App\Http\Controllers\API\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\RestaurantController;
 use App\Http\Controllers\API\TypeController;
-
+use App\Models\Lead;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,6 @@ Route::get('/types', [TypeController::class, 'index']);
 Route::get('/types/{type:slug}', [TypeController::class, 'show']);
 
 Route::post('/orders', [OrderController::class, 'store']);
+
+Route::post('/leads', [LeadController::class, 'store']);
 
