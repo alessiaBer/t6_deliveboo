@@ -9,6 +9,6 @@ class Lead extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['clientEmail', 'userEmail', 'fullname', 'address', 'phone', 'total_price', 'plates', 'status'];
+    protected $fillable = ['clientEmail', 'userEmail'];
     
 }

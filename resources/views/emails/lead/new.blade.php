@@ -6,48 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>New Mail</title>
-    <style>
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 15;
-            background-color: #161616;
-            color: white;
-        }
-
-        #logo {
-            height: 80px;
-        }
-
-        .nav_item {
-            color: white !important;
-        }
-
-        .nav_item:hover {
-            color: #00CDBC !important;
-        }
-
-        footer {
-            background-color: #161616;
-            color: white;
-            height: 120px;
-            padding: 0 2rem;
-        }
-
-        .text {
-            font-size: 24px;
-        }
-
-        a {
-            font-size: 24px;
-            transition: all 0.3s;
-        }
-
-        a:hover {
-            cursor: pointer;
-            color: #00CDBC !important;
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -86,9 +45,9 @@
             <h1>Ciao {{ $lead->fullname }}</h1>
             <p>Questo è il riepilogo del tuo Ordine al ristorante: "nome.ristorante"</p>
             <div class="container text-center">
-                <div>Indirizzo:</div>
-                <div>Numero Telefonico:</div>
-                <div>Email Ristoratore:</div>
+                <div>Indirizzo: </div>
+                <div>Numero Telefonico: </div>
+                <div>Email Ristoratore: {{ $lead->userEmail}} </div>
 
             </div>
             <div class="my_container">
@@ -128,10 +87,53 @@
             </li>
         </ul>
     </footer>
-    </div>
+
 </body>
 
+<style>
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 15;
+        background-color: #161616;
+        color: white;
+    }
+
+    #logo {
+        height: 80px;
+    }
+
+    .nav_item {
+        color: white !important;
+    }
+
+    .nav_item:hover {
+        color: #00CDBC !important;
+    }
+
+    footer {
+        background-color: #161616;
+        color: white;
+        height: 120px;
+        padding: 0 2rem;
+    }
+
+    .text {
+        font-size: 24px;
+    }
+
+    a {
+        font-size: 24px;
+        transition: all 0.3s;
+    }
+
+    a:hover {
+        cursor: pointer;
+        color: #00CDBC !important;
+    }
+</style>
 </html>
+
 
 
     
