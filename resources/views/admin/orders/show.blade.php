@@ -32,12 +32,10 @@
                 <br>
                 <span class="fw-normal">{{ $order->email }}</span>
             </h4>
-
-
-            {{--  <h4>order starting date:
+             <h4>order starting date:
                 <br>
                 <span class="fw-normal">{{ $order->created_at }}</span>
-            </h4> --}}
+            </h4>
         </div>
     </div>
 

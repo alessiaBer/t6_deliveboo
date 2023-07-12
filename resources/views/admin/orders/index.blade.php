@@ -42,7 +42,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td scope="row">No plates found</td>
+                        <td scope="row">No orders found</td>
                     </tr>
                 @endforelse
             </tbody>
