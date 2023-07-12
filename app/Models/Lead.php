@@ -9,6 +9,10 @@ class Lead extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['clientEmail', 'userEmail'];
+    protected $fillable = ['clientEmail', 'userEmail', 'cart'];
+
+    protected $casts = [
+        'cart' => 'array',
+    ];
     
 }

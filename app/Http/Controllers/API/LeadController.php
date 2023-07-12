@@ -17,6 +17,7 @@ class LeadController extends Controller
         $validator = Validator::make($request->all(), [
             'clientEmail' => 'required',
             'userEmail' => 'required',
+            'cart' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -29,10 +30,11 @@ class LeadController extends Controller
         $newLead = Lead::create([
             'clientEmail' => $request->clientEmail,
             'userEmail' => $request->userEmail,
+            'cart' => $request->cart,
         ]);
 
-        Mail::to($request->clientEmail)->send(new NewMail($newLead));
+        Mail::to($request->clientEmail)->send(new NewMail($newLead, $request->cart));
         
-        Mail::to($request->userEmail)->send(new NewMail($newLead));
+        Mail::to($request->userEmail)->send(new NewMail($newLead, $request->cart));
     }
 }
