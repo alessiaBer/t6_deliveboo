@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Order;
-
 class OrderController extends Controller
 {
     /**
@@ -16,11 +13,14 @@ class OrderController extends Controller
      */
     public function index()
     {
-        // date???
-        $orders = Order::orderByDesc('created_at')->get();
+        $restaurantId = auth()->user()->restaurant->id;
+        $orders = Order::whereHas('plates', function ($query) use ($restaurantId) {
+            $query->where('restaurant_id', $restaurantId);
+        })
+            ->orderByDesc('created_at')
+            ->get();
         return view('admin.orders.index', compact('orders'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -30,7 +30,6 @@ class OrderController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -41,7 +40,6 @@ class OrderController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      *
@@ -52,7 +50,6 @@ class OrderController extends Controller
     {
         return view('admin.orders.show', compact('order'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -63,7 +60,6 @@ class OrderController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -75,7 +71,6 @@ class OrderController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
