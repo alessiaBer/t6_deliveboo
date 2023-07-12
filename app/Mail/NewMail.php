@@ -12,16 +12,19 @@ use Illuminate\Queue\SerializesModels;
 class NewMail extends Mailable
 {
     use Queueable, SerializesModels;
+
     public $lead;
+    public $cart;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($lead)
+    public function __construct($lead, $cart)
     {
         $this->lead = $lead;
+        $this->cart = $cart;
     }
 
     /**

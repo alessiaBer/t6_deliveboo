@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('clientEmail');
             $table->string('userEmail');
+            $table->json('cart')->nullable();
             $table->timestamps();
         });
     }
