@@ -33,8 +33,8 @@ class LeadController extends Controller
             'cart' => $request->cart,
         ]);
 
-        Mail::to($request->clientEmail)->send(new NewMail($newLead, $request->cart));
+        Mail::to($request->clientEmail)->send(new NewMail($newLead, $request->cart, 'client'));
         
-        Mail::to($request->userEmail)->send(new NewMail($newLead, $request->cart));
+        Mail::to($request->userEmail)->send(new NewMail($newLead, $request->cart, 'owner'));
     }
 }

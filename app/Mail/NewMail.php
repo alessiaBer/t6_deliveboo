@@ -5,8 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 class NewMail extends Mailable
@@ -15,49 +13,31 @@ class NewMail extends Mailable
 
     public $lead;
     public $cart;
+    public $recipient;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($lead, $cart)
+    public function __construct($lead, $cart, $recipient)
     {
         $this->lead = $lead;
         $this->cart = $cart;
+        $this->recipient = $recipient;
     }
 
     /**
-     * Get the message envelope.
+     * Build the message.
      *
-     * @return \Illuminate\Mail\Mailables\Envelope
+     * @return $this
      */
-    public function envelope()
+    public function build()
     {
-        return new Envelope(
-            subject: 'New Mail',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
-    public function content()
-    {
-        return new Content(
-            view: 'emails.lead.new',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
-    public function attachments()
-    {
-        return [];
+        if ($this->recipient === 'client') {
+            return $this->subject('New Mail - Client')->view('emails.lead.client');
+        } elseif ($this->recipient === 'owner') {
+            return $this->subject('New Mail - Owner')->view('emails.lead.owner');
+        }
     }
 }
