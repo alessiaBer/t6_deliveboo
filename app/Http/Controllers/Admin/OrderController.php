@@ -4,8 +4,30 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Order;
+
 class OrderController extends Controller
 {
+    private function calculateOrderCounts($orders)
+    {
+        $orderCounts = [];
+        $months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        foreach ($months as $month) {
+            $orderCounts[$month] = 0;
+        }
+
+        // Calcola i conteggi degli ordini per ogni mese
+        foreach ($orders as $order) {
+
+            $month = date('F', strtotime($order->created_at));
+
+            if (isset($orderCounts[$month])) {
+                $orderCounts[$month]++;
+            }
+        }
+
+        return $orderCounts;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +41,12 @@ class OrderController extends Controller
         })
             ->orderByDesc('created_at')
             ->get();
-        return view('admin.orders.index', compact('orders'));
+
+        $orderData = [
+            'months' => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            'orderCounts' => $this->calculateOrderCounts($orders),
+        ];
+        return view('admin.orders.index', compact('orders', 'orderData'));
     }
     /**
      * Show the form for creating a new resource.
