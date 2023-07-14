@@ -137,7 +137,7 @@
 
     <main class="h_100">
         <div class="my_container mb1rem">
-          <p class="mb1rem">Questa è un email generata automaticamente, per favore non inviare rispose a questo
+          <p class="mb1rem">Questa è un email generata automaticamente, per favore non inviare risposte a questo
               indirizzo email.</p>
           <h2 class="mb1rem">Ciao {{ $lead->clientEmail }}</h2>
 
