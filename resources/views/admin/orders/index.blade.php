@@ -6,10 +6,16 @@
             <strong>{{ session('message') }}</strong>
         </div>
     @endif
-
-
+    <h1 class="text-center my-5">Monthly Sales</h1>
+    <div>
+        <div class="container my-5">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <h2 class="text-center my-4">Orders</h2>
     <div class="table-responsive rounded mb-3">
         <table class="table table-striped">
+
             <thead>
                 <tr class="align-middle">
                     <th scope="col">ID</th>
@@ -46,4 +52,36 @@
                     </tr>
                 @endforelse
             </tbody>
-        @endsection
+        </table>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        const orderData = @json($orderData);
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: orderData.months,
+                datasets: [{
+                    label: '# of Orders',
+                    data: orderData.orderCounts,
+                    borderWidth: 1,
+                    tension: 0.3
+                }]
+            },
+            options: {
+
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+@endsection
