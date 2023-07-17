@@ -81,7 +81,7 @@
                             <li class="nav-item">
                                 <a class="nav-link {{Route::currentRouteName() == 'admin.orders.index' ? 'bg-primary text-white' : ''}}"
                                     aria-current="page" href="{{route('admin.orders.index')}}">
-                                    <i class="fa-solid fa-chart-line"></i>
+                                    <i class="fa-solid fa-clipboard-list"></i>
                                     {{__('Orders')}}
                                 </a>
                             </li>
