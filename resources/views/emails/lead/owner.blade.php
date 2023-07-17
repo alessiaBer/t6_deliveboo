@@ -129,7 +129,7 @@
                     <h1>DELIVEBOO</h1>
                 </div>
                 <div>
-                    <a href="http://localhost:5174/order" class="button">Gestione Ordini</a>
+                    <a href="http://127.0.0.1:8000/admin/orders" class="button">Gestione Ordini</a>
                 </div>
             </nav>
         </div>

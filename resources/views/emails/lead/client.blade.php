@@ -129,7 +129,7 @@
                     <h1>DELIVEBOO</h1>
                 </div>
                 <div>
-                    <a href="http://localhost:5174/order" class="button">Torna al tuo ordine</a>
+                    <a href="http://localhost:5174/home" class="button">Torna al Sito</a>
                 </div>
             </nav>
         </div>
